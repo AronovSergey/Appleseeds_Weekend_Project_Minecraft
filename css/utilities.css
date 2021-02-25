@@ -14,3 +14,12 @@ button {
     cursor: pointer;
     outline: none;
 }
+
+.closeButton {
+    text-align: center;
+    font-size: 25px;
+    padding: 15px 10px 10px;
+    background: #e00;
+    border: 3px solid black;
+    border-radius: 8px;
+}

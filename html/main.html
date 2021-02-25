@@ -10,9 +10,27 @@
     <title>Minecraft</title>
 </head>
 <body>
-    <div id="board">
+    <div class="container">
+        <div id="board"></div>
+        <aside id="sidebar">
+            <button class="sidebar__resetButton">Reset</button>
+            <div class="container">
+                <div class="sidebar__tools-section">
+                    <button class="sidebar__tools axe" name="Axe"></button>
+                    <button class="sidebar__tools pickaxe" name="Pickaxe"></button>
+                    <button class="sidebar__tools shovel" name="Shovel"></button>
+                </div>
+                <div class="sidebar__elements-section">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <button class="closeButton">X</button>
+        </aside>
     </div>
     <script src="../js/elements.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/mainButtonsActions.js"></script>
 </body>
 </html>

@@ -50,14 +50,8 @@
     font-size: 40px;
 }
 
-.how-to-play button {
+.how-to-play .closeButton {
     position: absolute;
-    text-align: center;
-    font-size: 25px;
-    padding: 15px 10px 10px;
-    background: #e00;
-    border: 3px solid black;
-    border-radius: 8px;
     bottom: 10%;
     left: 50%;
 }
