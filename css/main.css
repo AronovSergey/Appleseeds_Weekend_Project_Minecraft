@@ -1,0 +1,41 @@
+/* Board */
+#board {
+    display: grid;
+    height: 100vh;
+    width: 100vh;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.element {
+    width: 5vh;
+    height: 5vh;
+}
+
+.sky {
+    background-color: #AFE0F2;
+}
+
+.cloud {
+    background-color: #FFF;
+}
+
+.rock {
+    background: URL(../images/rock.png) center center/cover no-repeat;
+}
+
+.land {
+    background: URL(../images/land.png) center center/cover no-repeat;
+}
+
+.full-land {
+    background: URL(../images/full-land.png) center center/cover no-repeat;
+}
+
+.tree-green {
+    background: URL(../images/tree-green.jpeg) center center/cover no-repeat;
+}
+
+.tree-brown {
+    background: URL(../images/tree-brown.png) center center/cover no-repeat;
+}
