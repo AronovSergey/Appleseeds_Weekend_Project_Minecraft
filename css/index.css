@@ -1,6 +1,8 @@
+@import url(//db.onlinewebfonts.com/c/9a402d6a80ceda873798bf79af582916?family=Minecrafter);
+
 *, *::after, *::before {
     box-sizing: border-box;
-    font-family: Gotham Rounded, sans-serif;
+    font-family: "Minecrafter";
 }
 
 body {
@@ -10,6 +12,7 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -21,4 +24,15 @@ body {
 #logo {
     height: 160px;
     width: auto;
+}
+
+button {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 20px 5px 20px;
+    margin: 20px;
+    width: 50%;
+    background: #777;
+    color: white;
+    border: 2px solid black;
 }
