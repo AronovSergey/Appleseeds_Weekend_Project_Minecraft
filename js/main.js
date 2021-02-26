@@ -1,11 +1,11 @@
 /* 
     ***sky, cloud, rock, land, fullLand, treeGreen and treeBrown is global variable created in the "elements.js"
 
+    ***ElementsStack is a class created at ElementsStack.js
 */
 
 
 const board = document.querySelector('#board');
-const elementsStackDisplay = document.querySelector('.sidebar__elements-section').children;
 
 let boardBluePrint = 
 [
@@ -33,13 +33,58 @@ let boardBluePrint =
 
 let toolType;
 
-drawBoard();
-
 const elementsStack = new ElementsStack();
 
+drawBoard();
 
 
+function elementEventListener(e) {
+    const i = this.getAttribute('indexI');
+    const j = this.getAttribute('indexJ');
+    // getting some element from board
+    if(toolType.classList.contains('sidebar__tools')){
+        if(this.classList.contains('removable')){
+            elementsStack.push(boardBluePrint[i][j]);
+            boardBluePrint[i][j] = 's';
+            drawElementsStackDisplay();
+            drawBoard();
+        }
+        else {
+            toolType.classList.add('sidebar__tools-error-effect');
+            setTimeout(() => {
+                toolType.classList.remove('sidebar__tools-error-effect')
+            }, 300);
+        }
+    }
+    // putting an element in board
+    else if(toolType.classList.contains('sidebar__elements')){
+        if(this.classList.contains('removable')){
+            boardBluePrint[i][j] = getClassShortcut(toolType.classList);
 
+            if(toolType.getAttribute('type') === 'first')
+                elementsStack.removeFirst;
+            else if(toolType.getAttribute('type') === 'second')
+                elementsStack.removeSecond;
+            else
+                elementsStack.removeThird;
+
+
+            drawElementsStackDisplay();
+            drawBoard();
+        }
+    }
+
+    function getClassShortcut(list) {
+        if(list.contains('full-land'))
+            return 'fl';
+        else if(list.contains('rock'))
+            return 'r';
+        else if(list.contains('tree-green'))
+            return 'tg';
+        else if(list.contains('tree-brown'))
+            return 'tb';
+    }
+}
 
 function drawBoard() {
     board.innerHTML = "";
@@ -102,62 +147,29 @@ function drawBoard() {
             }
         }
     }
-}
 
-function insertShape(board, Shape, x, y){
-}
-
-function elementEventListener(e) {
-    if(this.classList.contains('removable')){
-        const i = this.getAttribute('indexI');
-        const j = this.getAttribute('indexJ');
-        elementsStack.push(boardBluePrint[i][j]);
-        drawElementsStackDisplay();
-        boardBluePrint[i][j] = 's';
-        drawBoard();
-    }
-    else {
-        toolType.classList.add('sidebar__tools-error-effect');
-        setTimeout(() => {
-            toolType.classList.remove('sidebar__tools-error-effect')
-        }, 300);
-    }
+    
 }
 
 function drawElementsStackDisplay() {   
+    const container = document.querySelector('.sidebar__elements-section');
+    container.innerHTML = `<div class="sidebar__elements" type="first"></div>
+    <div class="sidebar__elements" type="second"></div>
+    <div class="sidebar__elements" type="third"></div>`;
+
     if(elementsStack.first){
-        const className = getClassName(elementsStack.first);
-        elementsStackDisplay[0].className = "";
-        elementsStackDisplay[0].classList.add("sidebar__tools");
-        elementsStackDisplay[0].classList.add(className);
+        const firstElementDiv = document.querySelector('[type="first"]');
+        firstElementDiv.classList.add(elementsStack.first);
+        firstElementDiv.addEventListener('click', sidebarElementsAction);  
     }
     if(elementsStack.second){
-        const className = getClassName(elementsStack.second);
-        elementsStackDisplay[1].className = "";
-        elementsStackDisplay[1].classList.add("sidebar__tools");
-        elementsStackDisplay[1].classList.add(className);
+        const secondElementDiv = document.querySelector('[type="second"]');
+        secondElementDiv.classList.add(elementsStack.second);
+        secondElementDiv.addEventListener('click', sidebarElementsAction); 
     }
     if(elementsStack.third){
-        const className = getClassName(elementsStack.third);
-        elementsStackDisplay[2].className = "";
-        elementsStackDisplay[2].classList.add("sidebar__tools");
-        elementsStackDisplay[2].classList.add(className);
-    }
-    function getClassName(type) {
-        switch (type) {
-            case 'l':
-                return 'full-land';
-            case 'fl':
-                return 'full-land';
-            case 'r':
-                return 'rock';
-            case 'tg':
-                return 'tree-green';
-            case 'tb':
-                return 'tree-brown'
-            default:
-                console.log("Wrong element type")
-                break;
-        }
+        const thirdElementDiv = document.querySelector('[type="third"]');
+        thirdElementDiv.classList.add(elementsStack.third);
+        thirdElementDiv.addEventListener('click', sidebarElementsAction); 
     }
 }

@@ -3,6 +3,7 @@ const closeButton = document.querySelector('.closeButton');
 const axeButton = document.querySelector('.axe');
 const pickaxeButton = document.querySelector('.pickaxe');
 const shovelButton = document.querySelector('.shovel');
+const sidebarElementsArr = document.querySelectorAll('.sidebar__elements')
 
 
 
@@ -18,6 +19,7 @@ closeButton.addEventListener('click', () => {
 
 axeButton.addEventListener('click', () => {
     removeStyleFromAllElements();
+    removeStyleFromAllSidebarElements();
     treeGreen.classList.add("removable");
     treeBrown.classList.add("removable");
     toolType = axeButton;
@@ -26,6 +28,7 @@ axeButton.addEventListener('click', () => {
 
 pickaxeButton.addEventListener('click', () => {
     removeStyleFromAllElements();
+    removeStyleFromAllSidebarElements();
     rock.classList.add("removable");
     toolType = pickaxeButton;
     drawBoard();
@@ -33,6 +36,7 @@ pickaxeButton.addEventListener('click', () => {
 
 shovelButton.addEventListener('click', () => {
     removeStyleFromAllElements();
+    removeStyleFromAllSidebarElements();
     fullLand.classList.add("removable");
     land.classList.add("removable");
     toolType = shovelButton;
@@ -45,5 +49,21 @@ function removeStyleFromAllElements() {
     rock.classList.remove("removable");
     fullLand.classList.remove("removable");
     land.classList.remove("removable");
+    sky.classList.remove("removable");
 };
 
+
+function removeStyleFromAllSidebarElements(){
+    sidebarElementsArr.forEach(element => {
+        element.classList.remove("selected");
+    });
+};
+
+function sidebarElementsAction() {
+    removeStyleFromAllElements();
+    removeStyleFromAllSidebarElements();
+    this.classList.add("selected");
+    sky.classList.add("removable");
+    toolType = this;
+    drawBoard();
+}
