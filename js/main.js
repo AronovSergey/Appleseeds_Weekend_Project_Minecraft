@@ -1,18 +1,20 @@
 /* 
     ***sky, cloud, rock, land, fullLand, treeGreen and treeBrown is global variable created in the "elements.js"
 
-    ***elementEventListener is function located at mainButtonsActions.js
 */
+
+
 const board = document.querySelector('#board');
+const elementsStackDisplay = document.querySelector('.sidebar__elements-section').children;
 
 let boardBluePrint = 
 [
     ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 'c', 'c', 's', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'c', 's', 's', 's', 's', 's', 's', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 's', 's', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'c', 'c', 'c', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's', 's'],
+    ['s', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 'c', 'c', 's', 's', 's', 's', 's', 's', 's'],
+    ['s', 's', 'c', 's', 's', 's', 's', 's', 's', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
+    ['s', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 's'],
+    ['s', 's', 's', 's', 's', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
+    ['s', 's', 'c', 'c', 'c', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
     ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
     ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
     ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg'],
@@ -32,6 +34,12 @@ let boardBluePrint =
 let toolType;
 
 drawBoard();
+
+const elementsStack = new ElementsStack();
+
+
+
+
 
 function drawBoard() {
     board.innerHTML = "";
@@ -97,15 +105,59 @@ function drawBoard() {
 }
 
 function insertShape(board, Shape, x, y){
-
 }
 
 function elementEventListener(e) {
     if(this.classList.contains('removable')){
         const i = this.getAttribute('indexI');
         const j = this.getAttribute('indexJ');
+        elementsStack.push(boardBluePrint[i][j]);
+        drawElementsStackDisplay();
         boardBluePrint[i][j] = 's';
-        console.log(toolType);
         drawBoard();
+    }
+    else {
+        toolType.classList.add('sidebar__tools-error-effect');
+        setTimeout(() => {
+            toolType.classList.remove('sidebar__tools-error-effect')
+        }, 300);
+    }
+}
+
+function drawElementsStackDisplay() {   
+    if(elementsStack.first){
+        const className = getClassName(elementsStack.first);
+        elementsStackDisplay[0].className = "";
+        elementsStackDisplay[0].classList.add("sidebar__tools");
+        elementsStackDisplay[0].classList.add(className);
+    }
+    if(elementsStack.second){
+        const className = getClassName(elementsStack.second);
+        elementsStackDisplay[1].className = "";
+        elementsStackDisplay[1].classList.add("sidebar__tools");
+        elementsStackDisplay[1].classList.add(className);
+    }
+    if(elementsStack.third){
+        const className = getClassName(elementsStack.third);
+        elementsStackDisplay[2].className = "";
+        elementsStackDisplay[2].classList.add("sidebar__tools");
+        elementsStackDisplay[2].classList.add(className);
+    }
+    function getClassName(type) {
+        switch (type) {
+            case 'l':
+                return 'full-land';
+            case 'fl':
+                return 'full-land';
+            case 'r':
+                return 'rock';
+            case 'tg':
+                return 'tree-green';
+            case 'tb':
+                return 'tree-brown'
+            default:
+                console.log("Wrong element type")
+                break;
+        }
     }
 }
