@@ -5,10 +5,6 @@ const pickaxeButton = document.querySelector('.pickaxe');
 const shovelButton = document.querySelector('.shovel');
 const sidebarElementsArr = document.querySelectorAll('.sidebar__elements')
 
-
-
-const elementsArr = document.querySelectorAll('.element');
-
 resetButton.addEventListener('click', () => {
     window.location.reload()
 });
@@ -51,7 +47,6 @@ function removeStyleFromAllElements() {
     land.classList.remove("removable");
     sky.classList.remove("removable");
 };
-
 
 function removeStyleFromAllSidebarElements(){
     sidebarElementsArr.forEach(element => {
