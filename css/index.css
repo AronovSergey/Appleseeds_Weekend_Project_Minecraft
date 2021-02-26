@@ -11,8 +11,8 @@
 }
 
 .container #logo {
-    height: 240px;
-    width: auto;
+    height: auto;
+    width: 80vw;
 }
 
 .container button {
