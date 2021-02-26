@@ -43,11 +43,16 @@
     position: relative;
     height: 100%;
     width: 100%;
+    padding: 30px;
 }
 
-.how-to-play h1 {
+.how-to-play h2 {
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
+}
+
+.how-to-play span {
+    font-size: 30px;
 }
 
 .how-to-play .closeButton {

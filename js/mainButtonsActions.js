@@ -1,12 +1,16 @@
-const resetButton = document.querySelector('.sidebar__resetButton');
+const sidebarButtons = document.querySelectorAll('.sidebar__Button');
 const closeButton = document.querySelector('.closeButton');
 const axeButton = document.querySelector('.axe');
 const pickaxeButton = document.querySelector('.pickaxe');
 const shovelButton = document.querySelector('.shovel');
 const sidebarElementsArr = document.querySelectorAll('.sidebar__elements')
 
-resetButton.addEventListener('click', () => {
+sidebarButtons[0].addEventListener('click', () => {
     window.location.reload()
+});
+
+sidebarButtons[1].addEventListener('click', () => {
+    nextMap();
 });
 
 closeButton.addEventListener('click', () => {

@@ -7,29 +7,79 @@
 
 const board = document.querySelector('#board');
 
-let boardBluePrint = 
+let boardBluePrintArray = 
 [
-    ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 'c', 'c', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 'c', 's', 's', 's', 's', 's', 's', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 'c', 'c', 'c', 'c', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 's', 's', 's', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 'c', 'c', 'c', 'c', 's', 'c', 'c', 's', 'c', 's', 's', 'c', 's', 's', 's', 's', 's', 's'],
-    ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
-    ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg'],
-    ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg'],
-    ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 'tg', 'tg', 'tg'],
-    ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 's', 'tb', 's'],
-    ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 's', 'tb', 's'],
-    ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tb', 's', 's', 'r', 's', 's', 'tb', 's'],
-    ['s', 's', 'tb', 'r', 'r', 'r', 's', 's', 's', 's', 's', 's', 'tb', 's', 's', 'r', 'r', 's', 'tb', 's'],
-    ['l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l'],
-    ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
-    ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
-    ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
-    ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+    [
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 's', 's', 's', 'c', 'c', 'c', 's', 's'],
+        ['s', 'c', 'c', 'c', 's', 's', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 'c', 'c', 'c', 's'],
+        ['s', 's', 'c', 'c', 'c', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's', 's', 'c', 'c', 's'],
+        ['s', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's', 'c', 's', 's', 's', 's', 's', 's', 's', 'c', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg'],
+        ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg'],
+        ['s', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 'tg', 'tg', 'tg'],
+        ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 's', 'tb', 's'],
+        ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 'tg', 'tg', 'tg', 's', 's', 's', 's', 'tb', 's'],
+        ['s', 's', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'tb', 's', 's', 'r', 's', 's', 'tb', 's'],
+        ['s', 's', 'tb', 'r', 'r', 'r', 's', 's', 's', 's', 's', 's', 'tb', 's', 's', 'r', 'r', 's', 'tb', 's'],
+        ['l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+    ],
+    [
+        ['s',   's',  's',  's',  's',  's',  's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s',  'tg', 'tg', 'tg', 'tg', 'tg',  's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s',  'tg', 'tg', 'tg', 'tg', 'tg',  's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['tg', 'tg', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's'],
+        ['tg', 'tg', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's', 's'],
+        ['tg', 'tg', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's', 's', 's'],
+        ['tg', 'tg', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 'c', 'c'],
+        ['s', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 'c', 'c', 's'],
+        ['s', 'tg', 'tg', 'tg', 'tg', 'tg', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'tb', 'tb', 'tb', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+    ],
+    [
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 'c', 's', 'c', 'c', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 'c', 's', 'c', 'c', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 's', 'c', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 'c', 'c', 'c', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 's', 'r', 'r', 'r', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['s', 's', 'r', 'r', 'tb', 'tb', 'tb', 'r', 'r', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's', 's'],
+        ['l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+        ['fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl', 'fl'],
+    ],
 ];
+
+let randomNumber = Math.floor(Math.random() * 3);
+
+let boardBluePrint = [...(boardBluePrintArray[randomNumber])];
 
 let toolType;
 
@@ -173,3 +223,8 @@ function drawElementsStackDisplay() {
         thirdElementDiv.addEventListener('click', sidebarElementsAction); 
     }
 }
+
+const nextMap = () => {
+    boardBluePrint = [...(boardBluePrintArray[++randomNumber % 3])];
+    drawBoard();
+};
