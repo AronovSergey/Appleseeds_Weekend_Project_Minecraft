@@ -1,0 +1,29 @@
+/* Main Page */
+.container #logo {
+    width: 90vw;
+}
+
+.container button {
+    font-size: 20px;
+    padding: 0;
+    padding-top: 10px;
+    margin: 10px;
+    width: 50%;
+    height: 50px;
+}
+
+/* How To Play */
+.how-to-play h2 {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.how-to-play span {
+    font-size: 1rem;
+}
+
+.how-to-play .closeButton {
+    position: absolute;
+    bottom: 10%;
+    left: 44%;
+}
