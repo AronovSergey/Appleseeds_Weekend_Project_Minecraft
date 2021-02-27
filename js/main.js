@@ -118,7 +118,7 @@ function elementEventListener(e) {
             else
                 elementsStack.removeThird;
 
-
+            toolType = null;
             drawElementsStackDisplay();
             drawBoard();
         }
@@ -202,7 +202,6 @@ function drawBoard() {
 }
 
 function drawElementsStackDisplay() {   
-    toolType = null;
     const container = document.querySelector('.sidebar__elements-section');
     container.innerHTML = `<div class="sidebar__elements" type="first"></div>
     <div class="sidebar__elements" type="second"></div>
