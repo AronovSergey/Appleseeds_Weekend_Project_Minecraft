@@ -119,6 +119,7 @@ function elementEventListener(e) {
                 elementsStack.removeThird;
 
             toolType = null;
+            removeStyleFromAllElements();
             drawElementsStackDisplay();
             drawBoard();
         }
