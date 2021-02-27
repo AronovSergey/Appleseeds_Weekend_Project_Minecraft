@@ -4,7 +4,7 @@ const howToPlayCloseButton = document.querySelector('.how-to-play').lastElementC
 const howToPlayContainer = document.querySelector('.how-to-play-container');
 
 startButton.addEventListener('click', () => {
-    window.location.href = '../html/main.html';
+    window.location.href = '../main.html';
 });
 
 howToPlayButton.addEventListener('click', () => {

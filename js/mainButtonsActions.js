@@ -20,7 +20,7 @@ sidebarButtons[1].addEventListener('click', () => {
 });
 
 closeButton.addEventListener('click', () => {
-    window.location.href = '../html/index.html';
+    window.location.href = '../index.html';
 });
 
 axeButton.addEventListener('click', () => {
