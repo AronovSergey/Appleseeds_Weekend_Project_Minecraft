@@ -1,8 +1,9 @@
 @import url(//db.onlinewebfonts.com/c/9a402d6a80ceda873798bf79af582916?family=Minecrafter);
+@import url(//db.onlinewebfonts.com/c/320cca572227f02a57aa55f479564218?family=Minecraft);
 
 *, *::after, *::before {
     box-sizing: border-box;
-    font-family: "Minecrafter";
+    font-family: "Minecrafter", "Minecraft";
 }
 
 body {
