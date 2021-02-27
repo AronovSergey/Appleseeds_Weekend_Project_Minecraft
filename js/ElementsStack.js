@@ -7,6 +7,10 @@ class ElementsStack {
         console.log(this.stack);
     };
 
+    emptyStack() {
+        this.stack = [];
+    }
+
     push(val) {
         this.stack.unshift(getClassName(val));
     };

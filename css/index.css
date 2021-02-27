@@ -48,11 +48,11 @@
 
 .how-to-play h2 {
     text-align: center;
-    font-size: 60px;
+    font-size: 3rem;
 }
 
 .how-to-play span {
-    font-size: 30px;
+    font-size: 1.5rem;
 }
 
 .how-to-play .closeButton {

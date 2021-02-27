@@ -79,7 +79,7 @@ let boardBluePrintArray =
 
 let randomNumber = Math.floor(Math.random() * 3);
 
-let boardBluePrint = [...(boardBluePrintArray[randomNumber])];
+let boardBluePrint = cloneMatrix(boardBluePrintArray[randomNumber]);
 
 let toolType;
 
@@ -224,7 +224,11 @@ function drawElementsStackDisplay() {
     }
 }
 
-const nextMap = () => {
-    boardBluePrint = [...(boardBluePrintArray[++randomNumber % 3])];
-    drawBoard();
-};
+function cloneMatrix(matrix) {
+    let newArray = [];
+
+    for (let i = 0; i < matrix.length; i++)
+        newArray[i] = matrix[i].slice();
+
+    return newArray;
+}

@@ -6,11 +6,17 @@ const shovelButton = document.querySelector('.shovel');
 const sidebarElementsArr = document.querySelectorAll('.sidebar__elements')
 
 sidebarButtons[0].addEventListener('click', () => {
-    window.location.reload()
+    boardBluePrint = cloneMatrix(boardBluePrintArray[randomNumber % 3]);
+    drawBoard();
+    elementsStack.emptyStack();
+    drawElementsStackDisplay();
 });
 
 sidebarButtons[1].addEventListener('click', () => {
-    nextMap();
+    boardBluePrint = cloneMatrix(boardBluePrintArray[++randomNumber % 3]);
+    drawBoard();
+    elementsStack.emptyStack();
+    drawElementsStackDisplay();
 });
 
 closeButton.addEventListener('click', () => {
