@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Minecraft Font";
-    src: url("../font/minecrafter/Minecrafter.Reg.ttf") format("truetype");
+    src: url("../fonts/minecrafter/Minecrafter.Reg.ttf") format("truetype");
 }
 
 *, *::after, *::before {
